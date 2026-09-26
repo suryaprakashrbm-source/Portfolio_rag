@@ -1,0 +1,175 @@
+﻿Personal Profile
+Name
+Suryaprakash B
+Current Professional Focus
+Transitioning and targeting AI and Machine Learning Engineering roles, building upon a strong foundation in enterprise test automation, RAG chatbot evaluation, and full-stack software development.
+Education
+School Education
+* SSLC (10th Grade, 2017–2018): Completed secondary education at RN Matric Hr Sec School, Chinnadharapuram, securing 79.6%.
+* HSC (12th Grade, 2019–2020): Completed higher secondary education at RN Matric Hr Sec School, Chinnadharapuram, achieving 79.2%.
+* Extracurricular Achievement: Secured first place in district-level volleyball competitions and participated in state-level competitions.
+Higher Education
+* Bachelor of Technology in Information Technology from VSB Engineering College, Karur.
+* Graduation Year: 2024.
+* CGPA: 8.5.
+Certifications and Activities
+* NPTEL Programming in Java: Elite + Silver certification with an 88% score.
+* LinkedIn skill assessments in Java and JavaScript.
+* Google Cloud Platform: 4 Quest badges and 4 Skill badges.
+* Udemy: CSS Complete Course for Beginners.
+* HackerRank: Java basics certification.
+* Infosys Springboard: Database Management System Parts 1 and 2.
+* Arrow Green Technologies: Artificial Intelligence and Data Science certification.
+* Great Learning: Data Structures and Algorithms in Java certification.
+* Technical workshop: Gaming with Unity by Let's Game Tech.
+* Technical workshop: Mobile App Development.
+Professional Experience
+Zscaler — Bangalore
+Associate Software Engineer QA
+October 2024 – Present
+* Automated and maintained 50+ end-to-end test suites in Tricentis Tosca, achieving 100% regression coverage across complex Salesforce ecosystem workflows prior to major production releases.
+* Architected high-reusability Tosca modules and automation components tailored for Salesforce UI and application architecture, reducing script maintenance overhead.
+* Executed a Playwright Proof of Concept to modernize web testing capabilities and successfully delivered 2+ core production modules.
+* Pioneered quality assurance strategies for Retrieval-Augmented Generation (RAG) AI chatbots using Python, leveraging Weights & Biases for real-time output evaluation, performance monitoring, and drift tracking.
+* Engineered automated testing workflows to validate complex, multi-step conversational flows and application logic for Zchat, an internal AI platform.
+* Automated REST API testing workflows and integrated validation scripts to verify data payloads, HTTP status codes, and cross-system data synchronization across microservices and backend systems.
+* Spearheaded quality assurance for the Salesforce Lead-to-Opportunity (L2O) automation pod while driving testing strategies across Quote-to-Order (Q2O) and Global Customer Support (GCS).
+* Uncovered 50+ critical software defects including 5+ production-blocking bugs, partnering with engineering teams to conduct root-cause analysis and secure rapid resolutions.
+Zscaler — QA Engineering Intern
+QA Engineering Intern
+March 2024 – September 2024
+* Completed a hands-on internship focused on enterprise testing tools, automated workflows, and Salesforce architecture.
+* Contributed to test case design, execution, and regression testing activities.
+* Gained foundational experience in enterprise software testing and automation workflows.
+AI and Advanced Projects
+RAG Chatbot Evaluation & Automated Testing Framework
+Tech Stack
+Python, RAGAS, Weights & Biases, LLM-as-a-Judge, RAG Architecture, Vector Databases, Transformers.
+Details
+Engineered an automated evaluation framework to monitor faithfulness, relevance, and hallucination drift in Retrieval-Augmented Generation (RAG) chatbots.
+Used RAGAS metrics and LLM-as-a-Judge evaluation to systematically validate conversational responses and system stability.
+Used Weights & Biases for experiment tracking, output evaluation, performance monitoring, and analysis.
+AI-Powered Jira & Salesforce Test Case Generator
+Tech Stack
+Python, Cursor IDE, Jira MCP, Salesforce MCP, LLMs, Prompt Engineering.
+Details
+Built an autonomous AI agent in Cursor using Jira and Salesforce Model Context Protocols (MCPs).
+The system automatically extracts project requirements and metadata and generates comprehensive test scenarios, including edge cases.
+Web and Application Development Projects
+Civil Builders App
+Tech Stack
+Android Studio, Java.
+Details
+Developed an Android application designed to calculate building construction costs.
+The application was successfully published on the Google Play Store.
+Movie Search Website
+Tech Stack
+React.js, JavaScript, HTML, CSS, Open Movie Database (OMDb) API.
+Details
+Developed a dynamic movie discovery web application using React.js.
+The application connects with an external movie API and allows users to search for movies and view descriptions, ratings, and metadata.
+Guess The Number
+Tech Stack
+React.js, JavaScript, HTML, CSS.
+Details
+Designed and developed an interactive entertainment web application using React.js.
+Todo List
+Tech Stack
+React.js, JavaScript, HTML, CSS.
+Details
+Created a daily task management web application that helps users track and manage daily goals and activities.
+Technical Skills
+AI and Machine Learning
+* Machine Learning
+* Deep Learning
+* PyTorch
+* NLP
+* Transformers
+* Large Language Models (LLMs)
+* Retrieval-Augmented Generation (RAG)
+* Vector Databases
+* AI Agents
+Test Automation and Frameworks
+* Tricentis Tosca
+* Playwright
+* End-to-End Testing
+* Regression Testing
+* Functional Testing
+* Integration Testing
+* API Testing
+* Smoke Testing
+* White Box Testing
+* Ad Hoc Testing
+* Non-functional Testing
+Programming Languages and Queries
+* Python
+* Java
+* JavaScript
+* SQL
+* SOQL
+* HTML
+* CSS
+* React.js
+AI and QA Frameworks
+* RAG Testing
+* RAGAS
+* LLM-as-a-Judge
+* Weights & Biases
+* AI Agent Testing
+* Prompt Engineering
+* Model Context Protocol (MCP)
+Platforms and Tools
+* Salesforce
+* Jira
+* Postman
+* Git
+* Docker
+* Cursor
+* Claude
+* Android Studio
+Salesforce Experience
+* Salesforce UI Testing
+* Lead-to-Opportunity (L2O)
+* Quote-to-Order (Q2O)
+* Global Customer Support (GCS)
+* Salesforce Workflow Testing
+Cloud and Databases
+* Google Cloud Platform
+* Database Management Systems
+* AWS
+Testing and Quality Engineering Experience
+* End-to-End Testing
+* Regression Testing
+* Functional Testing
+* Integration Testing
+* REST API Testing
+* API Payload Validation
+* HTTP Status Code Validation
+* Cross-system Data Validation
+* Defect and Bug Life Cycle
+* Root Cause Analysis
+* Test Automation
+* Regression Frameworks
+* Conversational AI Testing
+* RAG Chatbot Evaluation
+Soft Skills
+Leadership
+Spearheaded quality assurance for the Salesforce Lead-to-Opportunity (L2O) automation pod and contributed to testing strategies across key enterprise pods.
+Cross-functional Communication
+Partnered with engineering teams to conduct root-cause analysis, resolve critical software defects, and communicate testing workflows.
+Problem-Solving
+Identified critical software defects, developed automated test coverage, and designed custom QA solutions.
+Adaptability and Learning
+Transitioned from foundational web and mobile development into enterprise software engineering, test automation, AI chatbot testing, and RAG evaluation.
+Professional Profiles
+LinkedIn
+https://linkedin.com/in/suryaprakash-b-71421522a
+GitHub
+https://github.com/Surya051002/
+LeetCode
+http://leetcode.com/suryaprakashB/
+Personal Portfolio
+http://suryaprakashportfolio.000webhostapp.com/
+Google Play Store
+Civil Builders App
+https://play.google.com/store/apps/details?id=com.civilcal.civilcalculator
