@@ -1,10 +1,11 @@
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+import os
+from google import genai 
 from retrieval import get_relevant_context
+from dotenv import load_dotenv
 
+load_dotenv()
 
-tokenizer = AutoTokenizer.from_pretrained('google/flan-t5-base')
-
-model=AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-base')
+client=genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 
 
@@ -17,18 +18,15 @@ def llmanswer(query:str):
         Question: {query}
         Answer:"""
 
-    input=tokenizer(prompt, return_tensors="pt", truncation=True, max_length=512)
 
-    output = model.generate(
-        **input,
-        max_new_tokens=150,
-        min_length=30,
-        num_beams=1,
-        do_sample=False,
-        early_stopping=True
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=prompt
     )
 
-    result = tokenizer.decode(output[0],skip_special_tokens=True)
-    return result   
+    
+    return response.text
 
 
+if __name__ == "__main__":
+    print(llmanswer("Who is Suryaprakash?"))
