@@ -19,7 +19,13 @@ def llmanswer(query:str):
 
     input=tokenizer(prompt, return_tensors="pt", truncation=True, max_length=512)
 
-    output=model.generate(**input,max_new_tokens=500,min_length=60,num_beams=6,no_repeat_ngram_size=3,early_stopping=True)
+    output = model.generate(
+        **input,
+        max_new_tokens=150,
+        num_beams=1,
+        do_sample=False,
+        early_stopping=True
+    )
 
     result = tokenizer.decode(output[0],skip_special_tokens=True)
     return result   
