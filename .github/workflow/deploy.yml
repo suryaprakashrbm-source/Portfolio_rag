@@ -1,0 +1,23 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:[main]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: aws-actions/configure-aws-credentials@v4
+              with:
+                host: ${{ secrets.EC2_HOST }}
+                username: ${{ secrets.EC2_USER }}
+                key: ${{ secrets.EC2_SSH_KEY}}
+            - name: Update EC2 Instance 
+              run: |
+                cd ~/portfolio_rag
+                git pull
+                docker rm -f portfolio-rag
+                docker build -t portfolio-rag .
+                docker run -d --name portfolio-rag -p 80:8000 portfolio-rag
