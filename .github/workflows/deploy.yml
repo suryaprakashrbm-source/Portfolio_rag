@@ -23,4 +23,4 @@ jobs:
                   EOF
                   docker rm -f portfolio-rag
                   docker build -t portfolio-rag .
-                  docker run -d --name portfolio-rag -p 8000:8000 portfolio-rag
+                  docker run -d --name portfolio-rag -p 8000:8000 --env-file .env portfolio-rag
