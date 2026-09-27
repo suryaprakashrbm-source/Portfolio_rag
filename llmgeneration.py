@@ -13,7 +13,7 @@ client=Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 def llmanswer(query:str):
     context=get_relevant_context(query)
-    prompt = f"""Answer the question based on the context below.
+    prompt = f"""Answer the question based on the context below. Dont answer anything apart from this context 
         Context:
         {context}
         Question: {query}
