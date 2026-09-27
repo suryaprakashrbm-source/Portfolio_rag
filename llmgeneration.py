@@ -1,11 +1,12 @@
 import os
 from google import genai 
+from groq import Groq
 from retrieval import get_relevant_context
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client=genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+client=Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 
 
@@ -19,13 +20,15 @@ def llmanswer(query:str):
         Answer:"""
 
 
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt
+    response = client.chat.completions.create(
+        messages=[
+            {"role": "user", "content": prompt}
+        ],
+        model="llama-3.3-70b-versatile",
     )
 
     
-    return response.text
+    return response.choices[0].message.content
 
 
 if __name__ == "__main__":
