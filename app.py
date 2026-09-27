@@ -27,4 +27,4 @@ def home():
 @app.post('/ask')
 def ask_suryaprakash(request:Myclass):
     response=llmanswer(request.query)
-    return{"message":f"Response : {response}"}  
+    return{"message":f"{response}"}  
