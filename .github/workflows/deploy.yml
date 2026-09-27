@@ -19,7 +19,7 @@ jobs:
                   cd ~/Portfolio_rag
                   git pull
                   cat << 'EOF' > .env
-                  GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+                  GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
                   EOF
                   docker rm -f portfolio-rag
                   docker build -t portfolio-rag .
