@@ -22,6 +22,7 @@ def llmanswer(query:str):
     output = model.generate(
         **input,
         max_new_tokens=150,
+        min_length=30,
         num_beams=1,
         do_sample=False,
         early_stopping=True
