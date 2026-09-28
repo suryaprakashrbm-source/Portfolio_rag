@@ -30,7 +30,9 @@ def ask_suryaprakash(request: Myclass):
         response = llmanswer(request.query)
         return {"message": f"{response}"}
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
             return {"message": "The assistant is receiving many requests right now. Please wait a few seconds and try again!"}
-        return {"message": "Something went wrong, please try again later."}
+        return {"message": f"Error: {str(e)}"}
 
