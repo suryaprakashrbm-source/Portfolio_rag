@@ -10,9 +10,13 @@ __pycache__/
 *$py.class
 *.so
 
-# Environment secrets
+# Environment secrets & OAuth tokens
 .env
 .env.*
+*token.json
+*credentials.json
+tools/token.json
+tools/credentials.json
 
 # Distribution / packages
 build/

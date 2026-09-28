@@ -21,7 +21,13 @@ jobs:
                   cat << 'EOF' > .env
                   GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
                   EOF
-                  docker rm -f portfolio-rag
+                  cat << 'EOF' > tools/token.json
+                  ${{ secrets.GOOGLE_TOKEN_JSON }}
+                  EOF
+                  cat << 'EOF' > tools/credentials.json
+                  ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+                  EOF
+                  docker rm -f portfolio-rag || true
                   docker build -t portfolio-rag .
                   docker run -d --name portfolio-rag -p 8000:8000 --env-file .env portfolio-rag
 

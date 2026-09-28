@@ -18,9 +18,10 @@ RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/wh
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application files and vector database
+# Copy application files, tools, and vector database
 COPY app.py llmgeneration.py retrieval.py loader.py ./
 COPY data/ ./data/
+COPY tools/ ./tools/
 
 # Expose FastAPI default port
 EXPOSE 8000

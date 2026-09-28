@@ -107,9 +107,6 @@ Programming Languages and Queries
 * JavaScript
 * SQL
 * SOQL
-* HTML
-* CSS
-* React.js
 AI and QA Frameworks
 * RAG Testing
 * RAGAS
