@@ -7,8 +7,16 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-# If modifying these scopes, delete the file token.json.
-SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
+# Scopes for reading and creating events
+SCOPES = [
+    "https://www.googleapis.com/auth/calendar.readonly",
+    "https://www.googleapis.com/auth/calendar.events",
+]
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TOKEN_PATH = os.path.join(BASE_DIR, "token.json")
+CREDENTIALS_PATH = os.path.join(BASE_DIR, "credentials.json")
 
 
 def main():
@@ -16,22 +24,20 @@ def main():
   Prints the start and name of the next 10 events on the user's calendar.
   """
   creds = None
-  # The file token.json stores the user's access and refresh tokens, and is
-  # created automatically when the authorization flow completes for the first
-  # time.
-  if os.path.exists("token.json"):
-    creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+  # The file token.json stores the user's access and refresh tokens
+  if os.path.exists(TOKEN_PATH):
+    creds = Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
   # If there are no (valid) credentials available, let the user log in.
   if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
       creds.refresh(Request())
     else:
       flow = InstalledAppFlow.from_client_secrets_file(
-          "credentials.json", SCOPES
+          CREDENTIALS_PATH, SCOPES
       )
       creds = flow.run_local_server(port=0) 
     # Save the credentials for the next run
-    with open("token.json", "w") as token:
+    with open(TOKEN_PATH, "w") as token:
       token.write(creds.to_json())
 
   try:

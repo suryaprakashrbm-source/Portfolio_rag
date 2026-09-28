@@ -9,6 +9,7 @@ from googleapiclient.errors import HttpError
 
 SCOPES = [
     "https://www.googleapis.com/auth/calendar.readonly",
+    "https://www.googleapis.com/auth/calendar.events",
 ]
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
