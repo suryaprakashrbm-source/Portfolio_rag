@@ -34,7 +34,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
 # IDE settings
 .vscode/
 .idea/
