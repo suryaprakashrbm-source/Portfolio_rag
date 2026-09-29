@@ -94,6 +94,12 @@ def book_meeting(
         event_body = {
             "summary": summary,
             "description": description,
+            "conferenceData": {
+                "createRequest": {
+                    "requestId": f"meet-{int(datetime.datetime.now().timestamp())}",
+                    "conferenceSolutionKey": {"type": "hangoutsMeet"},
+                }
+            },
         }
 
         if attendee_email:
@@ -112,12 +118,27 @@ def book_meeting(
             event_body["start"] = {"date": start_time}
             event_body["end"] = {"date": end_time}
 
-        created = service.events().insert(calendarId="primary", body=event_body).execute()
+        created = service.events().insert(
+            calendarId="primary",
+            body=event_body,
+            conferenceDataVersion=1,
+            sendUpdates="all" if attendee_email else "none",
+        ).execute()
+
+        meet_link = created.get("hangoutLink")
+        if not meet_link and "conferenceData" in created:
+            entry_points = created["conferenceData"].get("entryPoints", [])
+            for ep in entry_points:
+                if ep.get("entryPointType") == "video":
+                    meet_link = ep.get("uri")
+                    break
+
         return (
             f"Meeting booked successfully!\n"
             f"- Title: {created.get('summary')}\n"
-            f"- Link: {created.get('htmlLink')}\n"
-            f"- Event ID: {created.get('id')}"
+            f"- Google Meet Link: {meet_link or 'https://meet.google.com'}\n"
+            f"- Calendar Event: {created.get('htmlLink')}\n"
+            f"- Event ID: `{created.get('id')}`"
         )
     except Exception as e:
         return f"Error booking meeting: {str(e)}"
