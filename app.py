@@ -1,3 +1,4 @@
+from pydantic._internal._generate_schema import resolve_original_schema
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from llmgeneration import llmanswer
@@ -28,6 +29,7 @@ def home():
 def ask_suryaprakash(request: Myclass):
     try:
         response = llmanswer(request.query)
+        print(response)
         return {"message": f"{response}"}
     except Exception as e:
         import traceback

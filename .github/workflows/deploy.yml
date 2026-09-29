@@ -29,6 +29,11 @@ jobs:
                   EOF
                   docker rm -f portfolio-rag || true
                   docker build -t portfolio-rag .
-                  docker run -d --name portfolio-rag -p 8000:8000 --env-file .env portfolio-rag
+                  docker run -d --name portfolio-rag \
+                    --log-driver=awslogs \
+                    --log-opt awslogs-region=us-east-1 \
+                    --log-opt awslogs-group=/portfolio-rag/logs \
+                    --log-opt awslogs-create-group=true \
+                    -p 8000:8000 --env-file .env portfolio-rag
 
                 
