@@ -35,21 +35,29 @@ Retrieved Context:
         {"role": "user", "content": query},
     ]
 
-    response = client.chat.completions.create(
-        model="openai/gpt-oss-120b",
-        messages=messages,
-        tools=TOOLS_SCHEMA,
-        tool_choice="auto",
-    )
+    # Multi-step tool execution loop (up to 4 steps)
+    for _ in range(4):
+        response = client.chat.completions.create(
+            model="openai/gpt-oss-120b",
+            messages=messages,
+            tools=TOOLS_SCHEMA,
+            tool_choice="auto",
+        )
 
-    response_message = response.choices[0].message
+        response_message = response.choices[0].message
 
-    # Handle Tool Calls
-    if response_message.tool_calls:
+        # If no tool calls, return text response
+        if not response_message.tool_calls:
+            return response_message.content or "I could not find an answer to that."
+
+        # Otherwise execute tool calls and continue
         messages.append(response_message)
         for tool_call in response_message.tool_calls:
             function_name = tool_call.function.name
-            function_args = json.loads(tool_call.function.arguments) if tool_call.function.arguments else {}
+            try:
+                function_args = json.loads(tool_call.function.arguments) if tool_call.function.arguments else {}
+            except Exception:
+                function_args = {}
             tool_output = execute_tool(function_name, function_args)
             messages.append(
                 {
@@ -60,14 +68,7 @@ Retrieved Context:
                 }
             )
 
-        # Get final response with tool results
-        final_response = client.chat.completions.create(
-            model="openai/gpt-oss-120b",
-            messages=messages,
-        )
-        return final_response.choices[0].message.content
-
-    return response_message.content or "I could not find an answer to that based on the provided information."
+    return "The request took too many steps to complete. Please try again."
 
 
 if __name__ == "__main__":
@@ -79,5 +80,4 @@ if __name__ == "__main__":
     print(llmanswer("tell about rently"))
     print("\n------------------\n")
     print("Testing Calendar Tool Query:")
-    print(llmanswer("Do you have any upcoming meetings or calls on your calendar?"))
-
+    print(llmanswer("book a meeting with surya on 30th sep 5pm to 6pm"))

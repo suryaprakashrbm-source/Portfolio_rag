@@ -179,10 +179,38 @@ TOOLS_SCHEMA = [
 
 def execute_tool(tool_name: str, arguments: dict) -> str:
     """Executes the requested tool by name with arguments and returns string response."""
-    if tool_name == "get_upcoming_events":
+    # Normalize tool name
+    if tool_name in ["get_upcoming_events", "list_events", "list_upcoming_events", "check_schedule"]:
         max_results = arguments.get("max_results", 10)
         return get_upcoming_events(max_results=max_results)
-    elif tool_name == "book_meeting":
-        return book_meeting(**arguments)
+    
+    elif tool_name in ["book_meeting", "create_event", "schedule_meeting", "schedule_call"]:
+        # Handle parameter aliases
+        summary = arguments.get("summary") or arguments.get("title") or arguments.get("name") or "Meeting with Surya"
+        start_time = arguments.get("start_time") or arguments.get("start")
+        end_time = arguments.get("end_time") or arguments.get("end")
+        description = arguments.get("description", "")
+        
+        # Handle attendee / email aliases
+        attendee_email = arguments.get("attendee_email") or arguments.get("email") or ""
+        if not attendee_email:
+            participants = arguments.get("participants") or arguments.get("attendees")
+            if isinstance(participants, list) and len(participants) > 0:
+                first = participants[0]
+                attendee_email = first.get("email", "") if isinstance(first, dict) else str(first)
+            elif isinstance(participants, str):
+                attendee_email = participants
+                
+        if not start_time or not end_time:
+            return "Error: Both start_time and end_time are required to book a meeting."
+            
+        return book_meeting(
+            summary=summary,
+            start_time=start_time,
+            end_time=end_time,
+            description=description,
+            attendee_email=attendee_email,
+        )
     else:
         return f"Unknown tool: {tool_name}"
+
