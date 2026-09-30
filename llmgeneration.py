@@ -6,7 +6,7 @@ from retrieval import get_relevant_context
 from tools.tools import TOOLS_SCHEMA, execute_tool
 
 load_dotenv()
-
+#using different model and id for this chat bot
 client=Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 
