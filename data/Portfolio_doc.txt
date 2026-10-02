@@ -184,3 +184,39 @@ Native / Hometown: Muthanampalayam, Karur, Tamil Nadu, India
 Date of Birth: 05/10/2002
 
 Languages Known: Tamil, English
+
+
+AI Projects
+
+1. Autonomous End-to-End AI Software Developer & Tester
+Tech Stack: Python, LLMs, Git Automation, Agentic Workflows
+
+Core Architecture: Utilizes a multi-agent development pipeline where different AI roles collaborate to take raw user requirements, write code, run automated tests, and handle error correction loops before anything is deployed.
+
+Key Capabilities:
+
+Self-Healing Code Generation: Automatically catches and resolves syntax, logic, or runtime errors through iterative validation-correction loops.
+
+Automated Testing & Git Integration: Generates custom test suites tailored to the application logic, validates core flows, and handles secure, automated commits directly to GitHub once code passes verification.
+
+2. Interactive Portfolio RAG Chatbot with Meeting Scheduler
+Tech Stack: Python, Vector Databases, Tool Integration
+
+Core Architecture: A Retrieval-Augmented Generation (RAG) conversational agent trained specifically on your professional background, resume, and project data to act as an interactive digital twin.
+
+Key Capabilities:
+
+Contextual Professional Persona: Delivers accurate, grounded answers about your skills, experience, and projects to recruiters or site visitors.
+
+Function-Calling & Scheduling: Equipped with custom tools that allow users to check real-time calendar availability and schedule meetings directly within the chat interface.
+
+3. Autonomous AI Job Application & Resume Tailoring Agent
+Tech Stack: Python, Playwright, LLMs, Vector Embeddings
+
+Core Architecture: An end-to-end automation agent that mimics human browsing behavior to interact with job boards and application portals autonomously.
+
+Key Capabilities:
+
+Dynamic ATS Optimization: Scrapes job descriptions using Playwright, extracts core skill requirements, and rewrites/tailors resume bullet points to maximize Applicant Tracking System (ATS) keyword matching.
+
+Semantic Matching & Autofill: Uses vector embeddings to map your project history against job postings, dynamically generates custom cover letters, and securely autofills application forms.
